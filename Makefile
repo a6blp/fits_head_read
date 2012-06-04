@@ -1,13 +1,10 @@
 CPP = g++
-CFLAGS = -Wall
-CLIB = -l CCfits
+CPPFLAGS = -Wall 
+CPPLIBS = -lCCfits
 
 all: fitshead
 fitshead: fitshead.o
-	$(CPP) $(CFLAGS) $(CLIB) fitshead.o -o fitshead
-
-fitshead.o: fitshead.cpp
-	$(CPP) $(CFLAGS) -c fitshead.cpp
-
+	$(CPP) $(CPPFLAGS) -o $@ fitshead.o $(CPPLIBS)
 clean: 
-	rm fitshead fitshead.o
+	rm -rf a.out fitshead *.o
+
